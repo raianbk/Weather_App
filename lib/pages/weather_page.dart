@@ -50,7 +50,6 @@ class _WeatherPageState extends State<WeatherPage> {
     } catch (e) {
       print(e);
     }
-    Navigator.of(context).pop();
   }
 
   @override
@@ -100,7 +99,7 @@ class _WeatherPageState extends State<WeatherPage> {
                   style: const TextStyle(fontSize: 20)),
               Text(
                 "${_weather?.temp.round() ?? " "}°",
-                style: const TextStyle(fontSize: 20),
+                style: const TextStyle(fontSize: 100),
               ),
               const Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -111,7 +110,7 @@ class _WeatherPageState extends State<WeatherPage> {
                   ),
                   Text(
                     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                    style: TextStyle(fontSize: 10),
+                    style: TextStyle(fontSize: 13),
                   ),
                 ],
               ),
