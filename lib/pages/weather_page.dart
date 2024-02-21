@@ -83,7 +83,7 @@ class _WeatherPageState extends State<WeatherPage> {
           child: Column(
             children: [
               Container(
-                margin: const EdgeInsets.only(top: 20),
+                margin: const EdgeInsets.only(top: 10),
                 padding: const EdgeInsets.only(
                     left: 14, right: 14, top: 7, bottom: 7),
                 decoration: BoxDecoration(
@@ -99,8 +99,8 @@ class _WeatherPageState extends State<WeatherPage> {
               Text(_weather?.mainCondition ?? " ",
                   style: const TextStyle(fontSize: 20)),
               Text(
-                "${_weather?.temp.round() ?? "loading"}°",
-                style: const TextStyle(fontSize: 100),
+                "${_weather?.temp.round() ?? " "}°",
+                style: const TextStyle(fontSize: 20),
               ),
               const Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -111,7 +111,7 @@ class _WeatherPageState extends State<WeatherPage> {
                   ),
                   Text(
                     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                    style: TextStyle(fontSize: 13),
+                    style: TextStyle(fontSize: 10),
                   ),
                 ],
               ),

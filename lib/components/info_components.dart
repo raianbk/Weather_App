@@ -18,14 +18,14 @@ class InfoWidget extends StatelessWidget {
         icon,
         const SizedBox(height: 10),
         Text(
-          "${temp}",
+          temp,
           style: TextStyle(
             color: const Color.fromARGB(255, 255, 237, 75),
             fontWeight: FontWeight.bold,
           ),
         ),
         Text(
-          "$info",
+          info,
           style: TextStyle(
             color: Color.fromARGB(255, 255, 237, 75),
             fontSize: 12,
