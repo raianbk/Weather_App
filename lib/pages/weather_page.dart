@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:api_tests/components/forecast_tiles.dart';
 import 'package:api_tests/components/info_components.dart';
 import 'package:api_tests/models/weather_model.dart';
 import 'package:api_tests/services/weather_services.dart';
@@ -14,7 +15,7 @@ class WeatherPage extends StatefulWidget {
 }
 
 class _WeatherPageState extends State<WeatherPage> {
-  var time = DateTime.now();
+  final time = DateTime.now();
   final String apiKey = " ";
   final _weatherService = WeatherService('c8b1620f56f3f6dafa972acc0a14f9fe');
   Weather? _weather;
@@ -164,7 +165,29 @@ class _WeatherPageState extends State<WeatherPage> {
                   ),
                   FaIcon(FontAwesomeIcons.arrowRightLong),
                 ],
-              )
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              Flexible(
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: [
+                    ForecastTile(
+                      weather: _weather,
+                      icon: FaIcon(FontAwesomeIcons.sun),
+                    ),
+                    ForecastTile(
+                        weather: _weather,
+                        icon: FaIcon(FontAwesomeIcons.cloudSun)),
+                    ForecastTile(
+                        weather: _weather,
+                        icon: FaIcon(FontAwesomeIcons.droplet)),
+                    ForecastTile(
+                        weather: _weather, icon: FaIcon(FontAwesomeIcons.bolt)),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
