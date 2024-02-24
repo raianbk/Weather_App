@@ -1,3 +1,4 @@
+import 'package:api_tests/const/consts.dart';
 import 'package:api_tests/models/weather_model.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -10,10 +11,10 @@ class ForecastTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(right: 10, bottom: 20),
+      margin: const EdgeInsets.only(right: 10, bottom: 30),
       padding: const EdgeInsets.only(left: 15, right: 15, top: 15, bottom: 15),
       decoration: BoxDecoration(
-        color: const Color.fromARGB(255, 255, 237, 75),
+        color: lightTurq,
         border: Border.all(color: Colors.black, width: 2),
         borderRadius: BorderRadius.circular(10),
       ),

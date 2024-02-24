@@ -2,6 +2,7 @@
 
 import 'package:api_tests/components/forecast_tiles.dart';
 import 'package:api_tests/components/info_components.dart';
+import 'package:api_tests/const/consts.dart';
 import 'package:api_tests/models/weather_model.dart';
 import 'package:api_tests/services/weather_services.dart';
 import 'package:flutter/material.dart';
@@ -15,10 +16,26 @@ class WeatherPage extends StatefulWidget {
 }
 
 class _WeatherPageState extends State<WeatherPage> {
-  final time = DateTime.now();
+  //final time = DateTime.now();
   final String apiKey = " ";
   final _weatherService = WeatherService('c8b1620f56f3f6dafa972acc0a14f9fe');
   Weather? _weather;
+  final Color _changedColor = Color.fromARGB(255, 255, 255, 255);
+  Color? _color;
+
+  void toWhite() {
+    ;
+    setState(() {
+      _color = _changedColor;
+    });
+  }
+
+  void toTurq() {
+    ;
+    setState(() {
+      _color = turq;
+    });
+  }
 
   String getDate(int day) {
     switch (day) {
@@ -69,14 +86,24 @@ class _WeatherPageState extends State<WeatherPage> {
         title: Text(
           _weather?.cityName ?? "loading",
           style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 25,
-              color: Color.fromARGB(206, 0, 0, 0)),
+              fontWeight: FontWeight.bold, fontSize: 25, color: black),
         ),
         centerTitle: true,
-        leading: Icon(Icons.menu),
       ),
-      backgroundColor: const Color.fromARGB(255, 255, 237, 75),
+      drawer: Drawer(
+        backgroundColor: _color,
+        child: ListView(children: [
+          ListTile(
+            onTap: toWhite,
+            title: Text("White"),
+          ),
+          ListTile(
+            onTap: toTurq,
+            title: Text("Turquoise"),
+          )
+        ]),
+      ),
+      backgroundColor: _color,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 30),
         child: Center(
@@ -87,12 +114,10 @@ class _WeatherPageState extends State<WeatherPage> {
                 padding: const EdgeInsets.only(
                     left: 14, right: 14, top: 7, bottom: 7),
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Colors.black),
+                    borderRadius: BorderRadius.circular(20), color: black),
                 child: Text(
                   "${getDate(time.weekday)} ${time.day},${time.year}",
-                  style: const TextStyle(
-                      color: Color.fromARGB(255, 255, 237, 75), fontSize: 15),
+                  style: TextStyle(color: _color, fontSize: 15),
                 ),
               ),
               const SizedBox(height: 10),
@@ -120,7 +145,7 @@ class _WeatherPageState extends State<WeatherPage> {
               ),
               Container(
                 decoration: BoxDecoration(
-                  color: Colors.black,
+                  color: black,
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Row(
@@ -131,7 +156,7 @@ class _WeatherPageState extends State<WeatherPage> {
                           info: "Wind",
                           icon: FaIcon(
                             FontAwesomeIcons.wind,
-                            color: Color.fromARGB(255, 255, 237, 75),
+                            color: _color,
                             size: 30,
                           )),
                       InfoWidget(
@@ -139,7 +164,7 @@ class _WeatherPageState extends State<WeatherPage> {
                           info: "Humidity",
                           icon: FaIcon(
                             FontAwesomeIcons.droplet,
-                            color: Color.fromARGB(255, 255, 237, 75),
+                            color: _color,
                             size: 30,
                           )),
                       InfoWidget(
@@ -147,7 +172,7 @@ class _WeatherPageState extends State<WeatherPage> {
                         info: "Visibility",
                         icon: FaIcon(
                           FontAwesomeIcons.eye,
-                          color: Color.fromARGB(255, 255, 237, 75),
+                          color: _color,
                           size: 30,
                         ),
                       ),
@@ -163,7 +188,7 @@ class _WeatherPageState extends State<WeatherPage> {
                     "Weekly Forecaset",
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
-                  FaIcon(FontAwesomeIcons.arrowRightLong),
+                  FaIcon(FontAwesomeIcons.arrowRightLong, size: 20),
                 ],
               ),
               SizedBox(
@@ -175,16 +200,20 @@ class _WeatherPageState extends State<WeatherPage> {
                   children: [
                     ForecastTile(
                       weather: _weather,
-                      icon: FaIcon(FontAwesomeIcons.sun),
+                      icon: FaIcon(FontAwesomeIcons.sun, size: 20),
                     ),
                     ForecastTile(
                         weather: _weather,
-                        icon: FaIcon(FontAwesomeIcons.cloudSun)),
+                        icon: FaIcon(
+                          FontAwesomeIcons.cloudSun,
+                          size: 20,
+                        )),
                     ForecastTile(
                         weather: _weather,
-                        icon: FaIcon(FontAwesomeIcons.droplet)),
+                        icon: FaIcon(FontAwesomeIcons.droplet, size: 20)),
                     ForecastTile(
-                        weather: _weather, icon: FaIcon(FontAwesomeIcons.bolt)),
+                        weather: _weather,
+                        icon: FaIcon(FontAwesomeIcons.bolt, size: 20)),
                   ],
                 ),
               ),
