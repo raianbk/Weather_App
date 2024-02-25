@@ -1,8 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:api_tests/const/consts.dart';
+import 'package:api_tests/models/color_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
 
 class InfoWidget extends StatelessWidget {
   final String temp;
@@ -21,14 +22,14 @@ class InfoWidget extends StatelessWidget {
         Text(
           temp,
           style: TextStyle(
-            color: turq,
+            color: context.watch<ColorProvider>().changeColor,
             fontWeight: FontWeight.bold,
           ),
         ),
         Text(
           info,
           style: TextStyle(
-            color: Colors.white,
+            color: context.watch<ColorProvider>().changeColor,
             fontSize: 12,
           ),
         ),

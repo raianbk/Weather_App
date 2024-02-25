@@ -3,10 +3,12 @@
 import 'package:api_tests/components/forecast_tiles.dart';
 import 'package:api_tests/components/info_components.dart';
 import 'package:api_tests/const/consts.dart';
+import 'package:api_tests/models/color_provider.dart';
 import 'package:api_tests/models/weather_model.dart';
 import 'package:api_tests/services/weather_services.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
 
 class WeatherPage extends StatefulWidget {
   const WeatherPage({super.key});
@@ -22,20 +24,6 @@ class _WeatherPageState extends State<WeatherPage> {
   Weather? _weather;
   final Color _changedColor = Color.fromARGB(255, 255, 255, 255);
   Color? _color;
-
-  void toWhite() {
-    ;
-    setState(() {
-      _color = _changedColor;
-    });
-  }
-
-  void toTurq() {
-    ;
-    setState(() {
-      _color = turq;
-    });
-  }
 
   String getDate(int day) {
     switch (day) {
@@ -91,19 +79,21 @@ class _WeatherPageState extends State<WeatherPage> {
         centerTitle: true,
       ),
       drawer: Drawer(
-        backgroundColor: _color,
+        backgroundColor: context.watch<ColorProvider>().changeColor,
         child: ListView(children: [
           ListTile(
-            onTap: toWhite,
+            onTap: () =>
+                Provider.of<ColorProvider>(context, listen: false).toWhite(),
             title: Text("White"),
           ),
           ListTile(
-            onTap: toTurq,
+            onTap: () =>
+                Provider.of<ColorProvider>(context, listen: false).toTurq(),
             title: Text("Turquoise"),
           )
         ]),
       ),
-      backgroundColor: _color,
+      backgroundColor: context.watch<ColorProvider>().changeColor,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 30),
         child: Center(
@@ -117,7 +107,9 @@ class _WeatherPageState extends State<WeatherPage> {
                     borderRadius: BorderRadius.circular(20), color: black),
                 child: Text(
                   "${getDate(time.weekday)} ${time.day},${time.year}",
-                  style: TextStyle(color: _color, fontSize: 15),
+                  style: TextStyle(
+                      color: context.watch<ColorProvider>().changeColor,
+                      fontSize: 15),
                 ),
               ),
               const SizedBox(height: 10),
@@ -156,7 +148,7 @@ class _WeatherPageState extends State<WeatherPage> {
                           info: "Wind",
                           icon: FaIcon(
                             FontAwesomeIcons.wind,
-                            color: _color,
+                            color: context.watch<ColorProvider>().changeColor,
                             size: 30,
                           )),
                       InfoWidget(
@@ -164,7 +156,7 @@ class _WeatherPageState extends State<WeatherPage> {
                           info: "Humidity",
                           icon: FaIcon(
                             FontAwesomeIcons.droplet,
-                            color: _color,
+                            color: context.watch<ColorProvider>().changeColor,
                             size: 30,
                           )),
                       InfoWidget(
@@ -172,7 +164,7 @@ class _WeatherPageState extends State<WeatherPage> {
                         info: "Visibility",
                         icon: FaIcon(
                           FontAwesomeIcons.eye,
-                          color: _color,
+                          color: context.watch<ColorProvider>().changeColor,
                           size: 30,
                         ),
                       ),

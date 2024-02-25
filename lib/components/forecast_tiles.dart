@@ -1,7 +1,9 @@
 import 'package:api_tests/const/consts.dart';
+import 'package:api_tests/models/color_provider.dart';
 import 'package:api_tests/models/weather_model.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
 
 class ForecastTile extends StatelessWidget {
   final Weather? weather;
@@ -14,7 +16,7 @@ class ForecastTile extends StatelessWidget {
       margin: const EdgeInsets.only(right: 10, bottom: 30),
       padding: const EdgeInsets.only(left: 15, right: 15, top: 15, bottom: 15),
       decoration: BoxDecoration(
-        color: lightTurq,
+        color: context.watch<ColorProvider>().changeColor,
         border: Border.all(color: Colors.black, width: 2),
         borderRadius: BorderRadius.circular(10),
       ),
