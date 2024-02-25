@@ -87,8 +87,7 @@ class _WeatherPageState extends State<WeatherPage> {
             title: Text("White"),
           ),
           ListTile(
-            onTap: () =>
-                Provider.of<ColorProvider>(context, listen: false).toTurq(),
+            onTap: () => context.read<ColorProvider>().toTurq(),
             title: Text("Turquoise"),
           )
         ]),

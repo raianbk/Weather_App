@@ -15,9 +15,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: WeatherPage(),
+      theme: ThemeData(primaryColor: Colors.black),
+      home: const WeatherPage(),
     );
   }
 }
