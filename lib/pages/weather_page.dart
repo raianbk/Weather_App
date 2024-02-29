@@ -18,12 +18,9 @@ class WeatherPage extends StatefulWidget {
 }
 
 class _WeatherPageState extends State<WeatherPage> {
-  //final time = DateTime.now();
   final String apiKey = " ";
   final _weatherService = WeatherService('c8b1620f56f3f6dafa972acc0a14f9fe');
   Weather? _weather;
-  final Color _changedColor = Color.fromARGB(255, 255, 255, 255);
-  Color? _color;
 
   String getDate(int day) {
     switch (day) {
