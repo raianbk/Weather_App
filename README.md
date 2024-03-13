@@ -1,16 +1,13 @@
-# api_tests
+# A simple Weather App
 
-A new Flutter project.
+A Flutter Weather APP project. Performed basic API tasks. I have used the provider package in flutter to do simple set management. The color change opotion in the app is the basic usage of the provider package it serves no functional purpose.
+The design is taken from Dribble.
 
-## Getting Started
+API - https://openweathermap.org/api
+Design - https://dribbble.com/shots/20675054-Mobile-Weather-app
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Screenshots 
+![image](https://github.com/raianbk/Weather_App/assets/138789895/95443c07-a9a0-41de-9e31-384d6ad38e9a)
+![image](https://github.com/raianbk/Weather_App/assets/138789895/a4794afc-98d6-4194-b957-1179052c00bc)
+![image](https://github.com/raianbk/Weather_App/assets/138789895/fb961d99-d172-4601-bc61-0ce757213376)
+![image](https://github.com/raianbk/Weather_App/assets/138789895/166681e9-6ab9-4783-9fd9-805a5f68261b)
